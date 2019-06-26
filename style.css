@@ -1,0 +1,29 @@
+*
+{
+	/*border: solid 2px;*/
+}
+td
+{
+width: 200px;
+position: relative;
+}
+.fontdep
+{
+	text-align: center;
+	color: blue;
+	font-weight: bold;
+}
+tr:hover
+{
+background: #CCCCCC;
+}
+span
+{
+	position: absolute;
+	left: 90%;
+}
+p
+{
+	color: red;
+	font-weight: bold;
+}
