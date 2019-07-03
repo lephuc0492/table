@@ -1,6 +1,6 @@
 *
 {
-	/*border: solid 2px;*/
+/*border: solid 2px;*/
 }
 td
 {
@@ -26,4 +26,13 @@ p
 {
 	color: red;
 	font-weight: bold;
+}
+thead
+{
+	cursor: pointer;
+}
+.fa-sort-down
+{
+	position: absolute;
+	left: 0px;
 }

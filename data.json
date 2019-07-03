@@ -1,0 +1,23 @@
+let sanpham = [
+{
+	"image": "https://vn-test-11.slatic.net/p/1a18ffc0dfc73f7892ee53b0f25faac0.jpg_200x200Q100.jpg_.webp",
+	"name": "Tông đơ cắt tóc",
+	"maso": 1,
+	"cost": 162000,
+	"quantity": 20
+},
+{
+	"image": "https://vn-test-11.slatic.net/p/mdc/fa5dc333938a1097331d6f5f4b001068.jpg_200x200Q100.jpg_.webp",
+	"name": "Cà phê mộc",
+	"maso": 2,
+	"cost": 99000,
+	"quantity": 200
+},
+{
+	"image": "https://vn-test-11.slatic.net/p/9f47ea2ac52cd9af5e47e02ba2904bda.jpg_200x200Q100.jpg_.webp",
+	"name": "Gối cao su",
+	"maso": 3,
+	"cost": 158000,
+	"quantity": 210
+}
+]

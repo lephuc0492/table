@@ -22,17 +22,22 @@ let sanpham = [
 }
 ]
 
+	var xhttp = new XMLHttpRequest();
+	xhttp.open("get", "https://lephuc0492.github.io/ajax/data.json")
+	xhttp.send()
+	var res = xhttp.response
+
 function sortNameAz(x)
 {
 	x.sort(function(a,b)
 	{
 		if(a.name.toLowerCase() < b.name.toLowerCase())
 		{
-		return -1; 
+			return -1; 
 		}
 		if(a.name.toLowerCase() > b.name.toLowerCase())
 		{
-		return 1; 
+			return 1; 
 		}	
 		return 0;	
 	})
@@ -44,11 +49,11 @@ function sortNameZa(x)
 	{
 		if(a.name.toLowerCase() < b.name.toLowerCase())
 		{
-		return 1; 
+			return 1; 
 		}
 		if(a.name.toLowerCase() > b.name.toLowerCase())
 		{
-		return -1; 
+			return -1; 
 		}	
 		return 0;	
 	})
@@ -59,30 +64,77 @@ function sortNameZa(x)
 for (let i = 0; i < sanpham.length; i++)
 {
 
-$("body > table > tbody").append("<tr class='themvao'><td><img src=" + sanpham[i].image + "></td><td>" + sanpham[i].name + "</td><td>" + sanpham[i].maso + "</td><td>" + sanpham[i].cost + "</td><td>" + sanpham[i].quantity + "</td></tr>")	
+	$("tbody").append("<tr class='themvao'><td><img src=" + sanpham[i].image + "></td><td>" + sanpham[i].name + "</td><td>" + sanpham[i].maso + "</td><td>" + sanpham[i].cost + "</td><td>" + sanpham[i].quantity + "</td></tr>")	
 }
-$("td").attr("class","fontdep")		
+$("td").attr("class","fontdep")
+$("span").attr("class","az")		
 ////////////////////////////////////////////
-$("span").on("click", function()
+$(".fontdep").on("click", function()
 {
-$(".themvao").remove()
-sortNameAz(sanpham)
-for (let i = 0; i < sanpham.length; i++)
-{
+	if($("span")[0].className == "az")
+	{
+	$(".themvao").remove()
+	sortNameAz(sanpham)
+	for (let i = 0; i < sanpham.length; i++)
+	{
 
-$("body > table > tbody").append("<tr class='themvao'><td><img src=" + sanpham[i].image + "></td><td>" + sanpham[i].name + "</td><td>" + sanpham[i].maso + "</td><td>" + sanpham[i].cost + "</td><td>" + sanpham[i].quantity + "</td></tr>")	
-}
-$("td").attr("class","fontdep")	
+		$("tbody").append("<tr class='themvao'><td><img src=" + sanpham[i].image + "></td><td>" + sanpham[i].name + "</td><td>" + sanpham[i].maso + "</td><td>" + sanpham[i].cost + "</td><td>" + sanpham[i].quantity + "</td></tr>")	
+	}
+	$("td").attr("class","fontdep")	
+	$("span").attr("class","za")
+	$(".fa-sort-down").css("color","red")
+	$(".fa-sort-up").css("color","blue")			
+	}
+	else
+	{
+	$(".themvao").remove()
+	sortNameZa(sanpham)
+	for (let i = 0; i < sanpham.length; i++)
+	{
+
+		$("tbody").append("<tr class='themvao'><td><img src=" + sanpham[i].image + "></td><td>" + sanpham[i].name + "</td><td>" + sanpham[i].maso + "</td><td>" + sanpham[i].cost + "</td><td>" + sanpham[i].quantity + "</td></tr>")	
+	}
+	$("td").attr("class","fontdep")	
+	$("span").attr("class","az")
+	$(".fa-sort-down").css("color","blue")	
+	$(".fa-sort-up").css("color","red")	
+	}
+	/*
+	$(".themvao").remove()
+	sortNameAz(sanpham)
+	for (let i = 0; i < sanpham.length; i++)
+	{
+
+		$("tbody").append("<tr class='themvao'><td><img src=" + sanpham[i].image + "></td><td>" + sanpham[i].name + "</td><td>" + sanpham[i].maso + "</td><td>" + sanpham[i].cost + "</td><td>" + sanpham[i].quantity + "</td></tr>")	
+	}
+	$("td").attr("class","fontdep")	
+	$("span").attr("class","za")
+	*/
+	/////
+
 })
 ////////////////////////////////////////////////
 $("span").dblclick(function()
 {
-$(".themvao").remove()
-sortNameZa(sanpham)
-for (let i = 0; i < sanpham.length; i++)
-{
+	$(".themvao").remove()
+	sortNameZa(sanpham)
+	for (let i = 0; i < sanpham.length; i++)
+	{
 
-$("body > table > tbody").append("<tr class='themvao'><td><img src=" + sanpham[i].image + "></td><td>" + sanpham[i].name + "</td><td>" + sanpham[i].maso + "</td><td>" + sanpham[i].cost + "</td><td>" + sanpham[i].quantity + "</td></tr>")	
-}
-$("td").attr("class","fontdep")	
+		$("tbody").append("<tr class='themvao'><td><img src=" + sanpham[i].image + "></td><td>" + sanpham[i].name + "</td><td>" + sanpham[i].maso + "</td><td>" + sanpham[i].cost + "</td><td>" + sanpham[i].quantity + "</td></tr>")	
+	}
+	$("td").attr("class","fontdep")	
 })
+
+
+/////////////////////////////////////////
+function tinhTongTien(x)
+{
+	var a = 0;
+	for (let i = 0; i < x.length; i++)
+	{
+		a += Number(x[i].cost);
+	}
+	return a;
+}
+////////////////////////////////////
